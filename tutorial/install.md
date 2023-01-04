@@ -1,12 +1,15 @@
 Downloading Prometheus
 Download the latest release of Prometheus for your platform, then extract it:
 
+```bash
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.38.0/prometheus-2.38.0.linux-amd64.tar.gz
 tar xvfz prometheus-*.tar.gz
 cd prometheus-*
+```
 
 O arquivo prometheus.yml é o arquivo de configuração do Prometheus e será ele que iremos utilizar para configurar o Prometheus:
 
+```bash
 # my global config
 global:
   scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
@@ -36,8 +39,11 @@ scrape_configs:
 
     static_configs:
       - targets: ["localhost:9090"]
+```      
 
 
 Executar o binário do Prometheus.
 
+```bash
 ./prometheus
+```
