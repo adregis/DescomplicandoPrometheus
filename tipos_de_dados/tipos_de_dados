@@ -1,0 +1,13 @@
+#gauge: Medidor
+
+O tipo de dado gauge é o tipo de dado utilizado para criar métricas que podem ter seus valores alterados para cima ou para baixo, por exemplo, a ultilização de memória ou cpu. Se quiser trazer para exemplos da vida real, podemos falar que aquelas filas que você odeia é o tipo de dado gauge, ou então a temperatura da sua cidade, ela pode ser alterada para cima ou para baixo, ou seja, é um medidor, é um gauge! :D Um exemplo de métrica do tipo gauge é a métrica memory_usage, que é uma métrica que mostra a utilização de memória.
+
+#counter: Contador
+O tipo de dado counter é o tipo de dado utilizado que vai ser incrementado no decorrer do tempo, por exemplo, quando eu quero contar os erros em uma aplicação no decorrer da última hora. O valor atual do counter quase nunca é importante, pois o que queremos dele são os valores durante uma janela de tempo, por exemplo, quantas vezes a minha aplicação falhou durante o final de semana. Normalmente as métricas counter possuem o sufixo _total para indicar que é o total de valores que foram contados
+
+#histogram: Histograma
+O tipo de dado histogram é o tipo de dado que te permite especificar o seu valor através de buckets predefinidos, por exemplo, o tempo de execução de uma aplicação. Com o histogram eu consigo contar todas as requisições que minha aplicação respondeu entre 0 e 0,5 segundos, ou então as requisições que tiveram respostas entre 1,0 e 2,5 e assim por diante. Por padrão, os buckets predefinidos são até no máximo 10 segundos, se você quiser mais, você pode criar seus próprios buckets personalizados. Um coisa super importante, o Prometheus irá contar cada item em cada bucket, e também a soma dos valores. Uma métrica do tipo histogram inclui alguns itens importantes são adicionados ao final do nome da métrica para indicar o tipo de dado e o tamanho do bucket.
+
+#summary: Resumo
+O tipo de dado summary é bem parecido com o histogram, com a diferença que os buckets, aqui chamados de quantiles, são definidos por um valor entre 0 e 1, ou seja, o valor do bucket é o valor que está entre os quantiles.
+Da mesma forma como no histogram, podemos criar métricas do tipo summary com alguns itens importantes adicionados ao final do nome da métrica.
